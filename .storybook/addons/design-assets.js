@@ -40,7 +40,11 @@ export const Content = () => {
   // the id of the story retrieved from Storybook global state
   const { storyId } = useStorybookState();
 
-  if (results.length === 0 && !results[selected]) {
+  if (results.length === 0) {
+    return null;
+  }
+
+  if (results.length && !results[selected]) {
     setSelected(0);
     return null;
   }
